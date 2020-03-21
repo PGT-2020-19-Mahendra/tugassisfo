@@ -1,22 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
--- https://www.phpmyadmin.net/
+-- version 4.2.11
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Mar 2020 pada 01.47
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.3
+-- Generation Time: 21 Mar 2020 pada 13.00
+-- Versi Server: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `sisfo`
@@ -28,7 +26,7 @@ SET time_zone = "+00:00";
 -- Struktur dari tabel `evaluasidosen`
 --
 
-CREATE TABLE `evaluasidosen` (
+CREATE TABLE IF NOT EXISTS `evaluasidosen` (
   `id` int(11) NOT NULL,
   `nama` text NOT NULL,
   `mk` text NOT NULL,
@@ -72,7 +70,7 @@ CREATE TABLE `evaluasidosen` (
 -- Struktur dari tabel `logkondite`
 --
 
-CREATE TABLE `logkondite` (
+CREATE TABLE IF NOT EXISTS `logkondite` (
   `id` int(11) NOT NULL,
   `nim` int(11) NOT NULL,
   `nama` text NOT NULL,
@@ -84,13 +82,23 @@ CREATE TABLE `logkondite` (
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `logkondite`
+--
+
+INSERT INTO `logkondite` (`id`, `nim`, `nama`, `jenispoin`, `poin`, `keterangan`, `tahun`, `prodi`, `tanggal`) VALUES
+(1, 1702042, 'MUHAMMAD ILHAM MAHENDRA', 'Plus', 10, 'UKK Drum Band', 20191, 'Teknik Elektronika', '2020-01-08'),
+(2, 1702038, 'MOKHAMMAD FAUZI', 'Poin', 20, 'PMB', 20192, 'TEKNIK ELEKTRONIKA', '2020-03-02'),
+(1, 1702038, 'MOKHAMMAD FAUZI', 'MINUS', -5, 'OUTSTANDING', 20191, 'TEKNIK ELEKTRONIKA', '2020-02-09'),
+(3, 1702038, 'MOHKAMMAD FAUZI', 'MINUS', -5, 'OUTSTANDING', 20201, 'TEKNIK ELEKTRONIKA', '2020-03-01');
+
 -- --------------------------------------------------------
 
 --
 -- Struktur dari tabel `mahasiswa`
 --
 
-CREATE TABLE `mahasiswa` (
+CREATE TABLE IF NOT EXISTS `mahasiswa` (
   `nim` int(11) NOT NULL,
   `nama` text NOT NULL,
   `jeniskelamin` text NOT NULL,
@@ -119,7 +127,7 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jeniskelamin`, `programstudi`, `tempatl
 -- Struktur dari tabel `nilaiakademik`
 --
 
-CREATE TABLE `nilaiakademik` (
+CREATE TABLE IF NOT EXISTS `nilaiakademik` (
   `id` int(11) NOT NULL,
   `nim` int(11) NOT NULL,
   `nama` text NOT NULL,
@@ -140,7 +148,6 @@ CREATE TABLE `nilaiakademik` (
   `status` text NOT NULL,
   `statusmk` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
